@@ -7,7 +7,7 @@ const youtube = google.youtube("v3");
 
 const bot = new Discord.Client();
 const prefix = ":";
-const botChannelName = "pica-commands";
+const botChannelName = "test";
 var botChannel;
 var fortunes = ["It is certain", "It is decidedly so", "Without a doubt", "Yes definitely", "You may rely of it", "As I see it, yes", "Most likely", "Outlook good", "Yes", "Signs point to yes", "Reply hazy try again", "Ask again later", "Better not tell you now", "Cannot predict now", "Concentrate and ask again", "Dont count on it", "My reply is no", "My sources say no", "Outlook not so good", "Very doubtful"];
 var dispatcher;
@@ -434,18 +434,7 @@ var checkForCommand = function(message){
 			message.channel.send(`Please create a \`${botChannelName}\` channel`);
 		}
 	}
-	if(!message.author.bot){
-		var temp = "";
-		if(message.content.substring(0, 3).toLowerCase() === "im "){
-			temp = message.content.substring(3);
-		} else if(message.content.substring(0, 4).toLowerCase() === "i'm "){
-			temp = message.content.substring(4);
-		}
-		if(temp !== ""){
-			message.channel.send("Hi " + temp + ", I'm dad.", {reply: message});
-		}
-	}
-}
+	
 
 bot.on("ready", function(){
 	console.log("Bot ready");
@@ -456,7 +445,7 @@ bot.on("disconnect", function(){
 });
 bot.on("guildMemberAdd", function(member){
 	member.guild.defaultChannel.send(`Welcome to the server, ${member}! :smile:`);
-	member.guild.defaultChannel.send(`You can type \`${prefix}help\` at anytime to see my commands`);
+	member.guild.defaultChannel.send(`I am TomasBOT! Nice to meet you`);
 });
 bot.on("message", function(message){
 	checkForCommand(message);
